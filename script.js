@@ -51,8 +51,7 @@
     ];
 
    // below are my question js 
-  
-  // variables to keep track of quiz state
+   // variables to keep track of quiz state
   var currentQuestionIndex = 0;
   var time = questions.length * 20;
   var timerId;
@@ -66,9 +65,9 @@
   var initialsEl = document.querySelector("#initials");
   var feedbackEl = document.querySelector("#feedback");
   
-  // // sound effects
-  // var sfxRight = new Audio("sound/sfx/correct.wav");
-  // var sfxWrong = new Audio("sound/sfx/incorrect.wav");
+  // my cool sound effects for right and wrong answers
+  var sfxRight = new Audio("sfx/correct.wav");
+  var sfxWrong = new Audio("sfx/wrong.wav");
   
   function BeginQz() {
     // hides in the start screen
@@ -128,10 +127,9 @@
       // this will show new time
       timerEl.textContent = time;
   
-      //here i want ot display wrong sound effect
-
-      // play "wrong" sound effect
-      //sfxWrong.play();
+      //Want ot display wrong sound effect
+      // Here is where i hear my "wrong" sound effect
+      sfxWrong.play();
   
       feedbackEl.textContent = "Sorry that is Wrong -_-!";
     } else {
@@ -226,14 +224,10 @@
     }
   }
   
-  // user clicks button to submit initials
-  //submitBtn.onclick = saveHiscore;
-  
-  // user clicks button to start quiz
-  startBtn.addEventListener ("click" , startQuiz);
+    // user clicks button to start quiz
+  startBtn.addEventListener ("click", startQuiz);
   submitBtn.addEventListener("submit", saveHiscore);
-  
-  //initialsEl.onkeyup = checkForEnter;
+   
    
 
   
