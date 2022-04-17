@@ -1,10 +1,11 @@
-
+// Go to clean function first to make sure it works at as i code.
   function clearHighscores() {
     window.localStorage.removeItem("highscores");
     window.location.reload();
+    document.querySelector("#clear").onclick = clearHighscores;
   }
     
-  //document.getElementById("clear").onclick = clearHighscores;
+    // list of all questions, choices, and answers
   var questions = [
     {
       title: "Which one is a fruit:",
@@ -12,32 +13,44 @@
       answer: "tomato"
     },
     {
-      title: "question",
-      choices: ["words", "words", "words", "words"],
-      answer: "answer"
+      title: "How many legs does spidey have",
+      choices: ["2", "4", "6", "8"],
+      answer: "8"
     },
     {
-      title: "question",
+      title: "How do you say I want to eat that in Japanese.",
       choices: [
-        "words",
-        "words",
-        "words",
-        "all of the above"
+        "Taberu",
+        "Tabemasu",
+        "Tabetai",
+        "TabeTabe"
       ],
-      answer: "all of the above"
+      answer: "Tabetai"
     },
     {
-      title: "Question",
-      choices: ["word", "word", "word", "word"],
-      answer: "quotes"
+      title: "Which ones are variables in C# ",
+      choices: ["string", 
+      "int", 
+      "double", 
+      "char", 
+      "bool",
+      "All of the above"],
+      answer: "All of the above"
     },
     {
-      title:"Question",
-      choices: ["words", "words", "word", "words"],
-      answer: "words"
-    }
-  ];
+      title:"What are are mammals",
+      choices: ["Bears", 
+      "Fish", 
+      "Spiders", 
+      "Whales",
+      "Bears and Whales",
+      "Fish and Spiders"],
+      answer: "Bears and Whales"
+    },
 
+    ];
+
+   // below are my question js 
   
   // variables to keep track of quiz state
   var currentQuestionIndex = 0;
@@ -57,29 +70,29 @@
   // var sfxRight = new Audio("sound/sfx/correct.wav");
   // var sfxWrong = new Audio("sound/sfx/incorrect.wav");
   
-  function BeginQuiz() {
-    // hide start screen
+  function BeginQz() {
+    // hides in the start screen
     var startScreenEl = document.querySelector("#start-screen");
     startScreenEl.setAttribute("class", "hide");
   
-    // un-hide questions section
+    //This will un-hide questions section
     questionsEl.removeAttribute("class");
   
-    // start timer
-    timerId = setInterval(clockTick, 1000);
+    // This will start timer
+    timerId = setInterval(clockTick, 1300);
   
     // show starting time
     timerEl.textContent = time;
   
-    getQuestion();
+    getQst();
   }
   
-  function getQuestion() {
+  function getQst() {
     // get current question object from array
     var currentQuestion = questions[currentQuestionIndex];
   
     // update title with current question
-    var titleEl = document.getElementById("question-title");
+    var titleEl = document.querySelector("#question-title");
     titleEl.textContent = currentQuestion.title;
   
     // clear out any old question choices
@@ -106,43 +119,48 @@
     // check if user guessed wrong
     if (this.value !== questions[currentQuestionIndex].answer) {
       // penalize time
-      time -= 15;
+      time -= 20;
   
       if (time < 0) {
         time = 0;
       }
   
-      // display new time on page
+      // this will show new time
       timerEl.textContent = time;
   
+      //here i want ot display wrong sound effect
+
       // play "wrong" sound effect
       //sfxWrong.play();
   
-      feedbackEl.textContent = "Wrong!";
+      feedbackEl.textContent = "Sorry that is Wrong -_-!";
     } else {
+
+      //here play correct sound effect
+
       // play "right" sound effect
       //sfxRight.play();
-        feedbackEl.textContent = "Correct!";
+        feedbackEl.textContent = "You Correct! O_o";
     }
   
-    // flash right/wrong feedback on page for half a second
+    //pops a right or wrong data on page for few second
     feedbackEl.setAttribute("class", "feedback");
     setTimeout(function() {
       feedbackEl.setAttribute("class", "feedback hide");
-    }, 1000);
+    }, 1150);
   
-    // move to next question
+    // this code take user to the next quesiton
     currentQuestionIndex++;
   
     // check if we've run out of questions
     if (currentQuestionIndex === questions.length) {
-      quizEnd();
+      endQuiz();
     } else {
-      getQuestion();
+      getQst();
     }
   }
   
-  function quizEnd() {
+  function endQuiz() {
     // stop timer
     clearInterval(timerId);
   
@@ -161,13 +179,13 @@
   }
   
   function clockTick() {
-    // update time
+    // this will update the code.
     time--;
     timerEl.textContent = time;
   
-    // check if user ran out of time
+    //this will indicated if users ran out of time.
     if (time <= 0) {
-      quizEnd();
+      endQuiz();
     }
   }
   
@@ -212,11 +230,10 @@
   //submitBtn.onclick = saveHiscore;
   
   // user clicks button to start quiz
-  startBtn.addEventListener ("click" ,startQuiz);
+  startBtn.addEventListener ("click" , startQuiz);
   submitBtn.addEventListener("submit", saveHiscore);
   
   //initialsEl.onkeyup = checkForEnter;
-  
-  // below are my question js 
-  // list of all questions, choices, and answers
+   
+
   
