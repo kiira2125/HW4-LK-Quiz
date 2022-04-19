@@ -38,7 +38,7 @@
       answer: "All of the above"
     },
     {
-      title:"What are are mammals",
+      title:"What animals are mammals",
       choices: ["Bears", 
       "Fish", 
       "Spiders", 
@@ -78,7 +78,7 @@
     questionsEl.removeAttribute("class");
   
     // This will start timer
-    timerId = setInterval(clockTick, 1300);
+    timerId = setInterval(clockTick, 1100);
   
     // show starting time
     timerEl.textContent = time;
@@ -104,7 +104,7 @@
       choiceNode.setAttribute("class", "choice");
       choiceNode.setAttribute("value", choice);
   
-      choiceNode.textContent = i + 1 + ". " + choice;
+      choiceNode.textContent = i + 1 + " . " + choice;
   
       // attach click event listener to each choice
       choiceNode.onclick = questionClick;
@@ -136,8 +136,8 @@
 
       //here play correct sound effect
 
-      // play "right" sound effect
-      //sfxRight.play();
+      // play "correct" sound effect
+      sfxRight.play();
         feedbackEl.textContent = "You Correct! O_o";
     }
   
@@ -145,7 +145,7 @@
     feedbackEl.setAttribute("class", "feedback");
     setTimeout(function() {
       feedbackEl.setAttribute("class", "feedback hide");
-    }, 1150);
+    }, 1500);
   
     // this code take user to the next quesiton
     currentQuestionIndex++;
@@ -159,16 +159,15 @@
   }
   
   function endQuiz() {
-    // stop timer
+    // stopping timer here.
     clearInterval(timerId);
   
-    // show end screen
+    // The end screen will appear
 
     var endScreenEl = document.querySelector("#end-screen");
-    //var endScreenEl = document.getElementById("end-screen");
     endScreenEl.removeAttribute("class");
   
-    // show final score
+    // this is to show the final score
     var finalScoreEl = document.querySelector("#final-score");
     finalScoreEl.textContent = time;
   
@@ -225,9 +224,5 @@
   }
   
     // user clicks button to start quiz
-  startBtn.addEventListener ("click", startQuiz);
+  startBtn.addEventListener ("click", BeginQz );
   submitBtn.addEventListener("submit", saveHiscore);
-   
-   
-
-  
