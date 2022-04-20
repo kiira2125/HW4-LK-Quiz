@@ -17,6 +17,5 @@ function prtHiscores() {
         olEl.appendChild(liTag);
  });
 }
-
   // this runs on other webpage
-  prtHiscores();
+  prtHiscores(hiScores);

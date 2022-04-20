@@ -1,18 +1,25 @@
 body {
   font-family: Arial;
-  font-size: 120%;
+  font-size: 25px;
   background-image: url("./Panda.jpg");
-  color: rgb(45, 231, 113);
+  display: contents;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content:center;
+  display: block;
+  color: rgb(254, 254, 254);
 }
 
 a {
-  color: #842690;
+  color: #fefaff;
+  font-size: 30px;
   text-decoration: none;
   transition: color 0.1s;
 }
 
 a:hover {
-  color: #f1f0f3;
+  color: #fefdff;
 }
 
 button {
@@ -20,16 +27,20 @@ button {
   margin: 5px;
   cursor: pointer;
   font-size: 100%;
-  background-color: #a05997;
+  background-color: #1c0313;
   border-radius: 5px;
   padding: 2px 10px;
-  color: rgb(36, 226, 251);
-  border: 0;
-  transition: background-color 0.1s;
+  color: rgb(46, 217, 239);
+  font-style:bold;
+  font-size:25px;
+  border: ;
+  
 }
 
 button:hover {
-  background-color: #e8e5ec;
+  background-color: #ffffff;
+  font-size: 35px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .choices button {
@@ -47,12 +58,13 @@ ol {
 }
 
 li {
-  padding: 5px;
+  padding: 8px;
   list-style: decimal inside none;
 }
 
 li:nth-child(odd) {
-  background-color: #f3edfc;
+  background-color: #f80285;
+  font-size: 10px;
 }
 
 .wrapper {
@@ -66,25 +78,30 @@ li:nth-child(odd) {
 
 .start {
   text-align: center;
+  font-size: 15px;
 }
 
 .scores {
   position: absolute;
+  color: rgb(242, 4, 143);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   top: 10px;
   left: 10px;
+  font-size: 15pxs;
 }
 
 .feedback {
   font-style: italic;
+  font-style: bold;
   font-size: 120%;
   margin-top: 20px;
   padding-top: 10px;
-  color: gray;
-  border-top: 2px solid #ccc;
+  color: rgba(255, 103, 2, 0.858);
+  border-top: 2px solid rgb(159, 199, 49);
 }
 
 .timer {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
 }

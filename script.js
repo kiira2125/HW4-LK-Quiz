@@ -1,9 +1,10 @@
 // Go to clean function first to make sure it works at as i code.
-  function clearHighscores() {
-    window.localStorage.removeItem("highscores");
-    window.location.reload();
-    document.querySelector("#clear").onclick = clearHighscores;
-  }
+function clearHighscores() {
+  window.localStorage.removeItem("highscores");
+  window.location.reload();
+  document.querySelector("#clear").onclick = clearHighscores;
+};    
+    
     
     // list of all questions, choices, and answers
   var questions = [
@@ -15,7 +16,7 @@
     {
       title: "How many legs does spidey have",
       choices: ["2", "4", "6", "8"],
-      answer: "8"
+      answer:"8"
     },
     {
       title: "How do you say I want to eat that in Japanese.",
@@ -25,7 +26,7 @@
         "Tabetai",
         "TabeTabe"
       ],
-      answer: "Tabetai"
+      answer:"Tabetai"
     },
     {
       title: "Which ones are variables in C# ",
@@ -35,7 +36,7 @@
       "char", 
       "bool",
       "All of the above"],
-      answer: "All of the above"
+      answer:"All of the above"
     },
     {
       title:"What animals are mammals",
@@ -45,7 +46,7 @@
       "Whales",
       "Bears and Whales",
       "Fish and Spiders"],
-      answer: "Bears and Whales"
+      answer:"Bears and Whales"
     },
 
     ];
@@ -118,7 +119,7 @@
     // check if user guessed wrong
     if (this.value !== questions[currentQuestionIndex].answer) {
       // penalize time
-      time -= 20;
+      time -= 90;
   
       if (time < 0) {
         time = 0;
@@ -128,26 +129,22 @@
       timerEl.textContent = time;
   
       //Want ot display wrong sound effect
-      // Here is where i hear my "wrong" sound effect
-      sfxWrong.play();
+     sfxWrong.play();
   
       feedbackEl.textContent = "Sorry that is Wrong -_-!";
     } else {
 
-      //here play correct sound effect
-
-      // play "correct" sound effect
+    // play "correct" sound effect
       sfxRight.play();
         feedbackEl.textContent = "You Correct! O_o";
     }
-  
-    //pops a right or wrong data on page for few second
+   //pops a right or wrong data on page for few second
     feedbackEl.setAttribute("class", "feedback");
     setTimeout(function() {
       feedbackEl.setAttribute("class", "feedback hide");
     }, 1500);
   
-    // this code take user to the next quesiton
+    // this code take user to the following quesiton
     currentQuestionIndex++;
   
     // check if we've run out of questions
@@ -206,23 +203,21 @@
         score: time,
         initials: initials
       };
-  
       // this .push function will save to localstorage
       highscores.push(newScore);
-      window.localStorage.setItem("highscores", JSON.stringify(highscores));
+      window.localStorage.setItem("highscores", JSON.stringify("highscores"));
       window.location.href = "/highscores.html"
       // want to display a list on the left side when they click "score sheet" to view results.
 
      }
   }
-  
+  // here its when you press enter it should show you your high score.
     function checkEnter(event) {
     // "13" represents the enter key
     if (event.key === "Enter") {
       saveHiscore();
     }
   }
-  
-    // user clicks button to start quiz
-  startBtn.addEventListener ("click", BeginQz );
+  // user clicks button to start quiz
+  startBtn.addEventListener("click", BeginQz );
   submitBtn.addEventListener("submit", saveHiscore);
