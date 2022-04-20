@@ -1,10 +1,4 @@
-// Go to clean function first to make sure it works at as i code.
-function clearHighscores() {
-  window.localStorage.removeItem("highscores");
-  window.location.reload();
-  document.querySelector("#clear").onclick = clearHighscores;
-};    
-    
+
     
     // list of all questions, choices, and answers
   var questions = [
@@ -195,17 +189,16 @@ function clearHighscores() {
     // make sure value wasn't empty
     if (initials !== "") {
       // get saved scores from localstorage, or if not any, set to empty array
-      var highscores =
-        JSON.parse(window.localStorage.getItem("highscores")) || [];
-  
-      // format new score object for current user
+      var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+      console.log(highscores)
+        // format new score object for current user
       var newScore = {
         score: time,
         initials: initials
       };
       // this .push function will save to localstorage
       highscores.push(newScore);
-      window.localStorage.setItem("highscores", JSON.stringify("highscores"));
+      window.localStorage.setItem("highscores", JSON.stringify(highscores));
       window.location.href = "/highscores.html"
       // want to display a list on the left side when they click "score sheet" to view results.
 
