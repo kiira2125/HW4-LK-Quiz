@@ -1,5 +1,5 @@
-function prtHiscores() {
-    // either get scores from localstorage or set to empty array
+function prtHiScores() {
+    // either get scores from local storage or set to empty array
     var hiScores = JSON.parse(window.localStorage.getItem("highscores")) || [];
   console.log(hiScores)
     // sort highscores by score property in descending order
@@ -18,11 +18,11 @@ function prtHiscores() {
  });
 }
 // Go to clean function first to make sure it works at as i code.
-function clearHighscores() {
+function clearHighScores() {
   window.localStorage.removeItem("highscores");
   window.location.reload();
 };    
-document.querySelector("#clear").addEventListener("click",clearHighscores);
+document.querySelector("#clear").addEventListener("click",clearHighScores);
 
   // this runs on other webpage
-  prtHiscores();
+  prtHiScores();

@@ -138,7 +138,7 @@
       feedbackEl.setAttribute("class", "feedback hide");
     }, 1500);
   
-    // this code take user to the following quesiton
+    // this code take user to the following questions
     currentQuestionIndex++;
   
     // check if we've run out of questions
@@ -179,7 +179,7 @@
   
   // here is the function for saving hi score.
 
-  function saveHiscore(event) {
+  function saveHiScore(event) {
     //console.log(event)
 
     event.preventDefault();
@@ -188,7 +188,7 @@
   
     // make sure value wasn't empty
     if (initials !== "") {
-      // get saved scores from localstorage, or if not any, set to empty array
+      // get saved scores from local storage, or if not any, set to empty array
       var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
       console.log(highscores)
         // format new score object for current user
@@ -196,7 +196,7 @@
         score: time,
         initials: initials
       };
-      // this .push function will save to localstorage
+      // this .push function will save to local storage
       highscores.push(newScore);
       window.localStorage.setItem("highscores", JSON.stringify(highscores));
       window.location.href = "/highscores.html"
@@ -208,9 +208,9 @@
     function checkEnter(event) {
     // "13" represents the enter key
     if (event.key === "Enter") {
-      saveHiscore();
+      saveHiScore();
     }
   }
   // user clicks button to start quiz
   startBtn.addEventListener("click", BeginQz );
-  submitBtn.addEventListener("submit", saveHiscore);
+  submitBtn.addEventListener("submit", saveHiScore);
