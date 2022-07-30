@@ -199,7 +199,7 @@
       // this .push function will save to local storage
       highscores.push(newScore);
       window.localStorage.setItem("highscores", JSON.stringify(highscores));
-      window.location.href = "/highscores.html"
+      window.location.href = "./highscores.html"
       // want to display a list on the left side when they click "score sheet" to view results.
 
      }
