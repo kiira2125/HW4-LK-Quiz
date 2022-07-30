@@ -176,7 +176,7 @@
       endQuiz();
     }
   }
-  
+  //lskdjflsdkj
   // here is the function for saving hi score.
 
   function saveHiScore(event) {
